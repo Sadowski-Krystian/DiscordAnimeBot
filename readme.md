@@ -28,3 +28,7 @@ TOKEN="Your discord bot token"
 npm run start
 
 ```
+
+## Usage
+
+To get Information About anime just click reaction that bot add under KLU info

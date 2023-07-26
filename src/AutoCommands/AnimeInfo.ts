@@ -5,7 +5,7 @@ import embeds from "../config"
 import { Collectors } from "../Collectors";
 export const AnimeInfo: AutoCommand = {
     run: async (client: Client, message: any) => {
-        message.react('<:senkothink:1107659990795309206>')
+        message.react('🀄')
        
         
         
@@ -16,7 +16,7 @@ export const AnimeInfo: AutoCommand = {
         const filter = (reaction: MessageReaction, user: User) =>{
             // console.log(reaction.emoji.name);
             
-            return reaction.emoji.name &&  ['senkothink'].includes(reaction.emoji.name) && user.id === message.mentions.repliedUser?.id
+            return reaction.emoji.name &&  ['🀄'].includes(reaction.emoji.name) && user.id === message.mentions.repliedUser?.id
         } 
         const collector = message.createReactionCollector({
             filter,
