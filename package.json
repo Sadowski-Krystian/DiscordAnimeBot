@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "@shineiichijo/marika": "^2.0.6",
+    "@tutkli/jikan-ts": "^0.6.62",
+    "debug": "^3.2.7",
+    "discord.js": "^14.11.0",
+    "dotenv": "^16.3.1",
+    "mal-client": "^1.0.3",
+    "mal-scraper": "^2.13.1",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "scripts": {
+    "start": "ts-node src/Bot.ts"
+  }
+}
