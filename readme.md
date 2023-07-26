@@ -1,5 +1,11 @@
 # Discord Bot With anime stuff
 
+## Information
+
+This bot is created to Karuta players on discord can get more information about anime from the KLU command.
+With time I add more anime stuff to this
+
+
 ## Installation
 
 1. Install All nessesary packages
