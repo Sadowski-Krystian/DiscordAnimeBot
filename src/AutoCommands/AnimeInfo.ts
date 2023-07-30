@@ -41,7 +41,7 @@ export const AnimeInfo: AutoCommand = {
                 // console.log(data[0]);
                 console.log(data[0]);
                 
-                if(data[0].es_score < 5 && data[0].name != AnimeName){
+                if(data[0].es_score < 3 && data[0].name != AnimeName){
                     content = "This is propably not anime, maybe game";
                 }
             })
