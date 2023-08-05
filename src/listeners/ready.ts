@@ -9,6 +9,7 @@ export default (client: Client): void => {
 
         await client.application.commands.set(Commands)
         // console.log(Commands);
+        console.log(Commands);
         
 
         console.log(`${client.user.username} is online`);

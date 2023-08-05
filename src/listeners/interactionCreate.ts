@@ -3,6 +3,9 @@ import { Commands } from "../Commands";
 
 export default (client: Client): void => {
     client.on("interactionCreate", async (interaction: Interaction) =>{
+        if(process.env.STATUS == "DEV" && interaction.guild?.id != process.env.GUILD){
+            return;
+        }
         if(interaction.isCommand() || interaction.isContextMenuCommand()){
             await handleSlashCommand(client, interaction);
         }
