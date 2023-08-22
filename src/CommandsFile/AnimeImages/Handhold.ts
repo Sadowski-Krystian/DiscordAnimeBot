@@ -9,6 +9,7 @@ export const Handhold: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Handhold Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("handhold", "sfw");
         const embed = {

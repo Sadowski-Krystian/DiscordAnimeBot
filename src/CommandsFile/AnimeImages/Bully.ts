@@ -10,6 +10,7 @@ export const Bully: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Bully Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("bully", "sfw");
         const embed = {

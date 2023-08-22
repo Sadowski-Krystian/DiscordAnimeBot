@@ -11,6 +11,7 @@ export const NSFWTrap: Command = {
     category: commandCategory.Fun,
     showHelp: true,
     nsfw: true,
+    helpDescription: "Random NSFW Trap Image",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("trap", "nsfw");
         const embed = {

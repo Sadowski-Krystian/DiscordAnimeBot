@@ -10,6 +10,7 @@ export const Waifu: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Waifu Image",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("waifu", "sfw");
         const embed = {

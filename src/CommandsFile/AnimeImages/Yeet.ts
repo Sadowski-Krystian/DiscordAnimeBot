@@ -9,6 +9,7 @@ export const Yeet: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Yeet Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("yeet", "sfw");
         const embed = {

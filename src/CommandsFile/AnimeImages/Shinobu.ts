@@ -10,6 +10,7 @@ export const Shinobu: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Shinobu Image",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("shinobu", "sfw");
         const embed = {

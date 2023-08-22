@@ -9,6 +9,7 @@ export const Highfive: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Highfive Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("highfive", "sfw");
         const embed = {

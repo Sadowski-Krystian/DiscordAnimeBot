@@ -11,6 +11,7 @@ export const NSFWNeko: Command = {
     category: commandCategory.Fun,
     showHelp: true,
     nsfw: true,
+    helpDescription: "Random NSFW Neko Image",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("neko", "nsfw");
         const embed = {

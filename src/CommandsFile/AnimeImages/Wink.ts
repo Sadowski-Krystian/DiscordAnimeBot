@@ -9,6 +9,7 @@ export const Wink: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Wink Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("wink", "sfw");
         const embed = {

@@ -9,6 +9,7 @@ export const Slap: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Slap Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("slap", "sfw");
         const embed = {

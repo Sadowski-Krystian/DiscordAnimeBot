@@ -9,6 +9,7 @@ export const Glomp: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Glomp Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("glomp", "sfw");
         const embed = {

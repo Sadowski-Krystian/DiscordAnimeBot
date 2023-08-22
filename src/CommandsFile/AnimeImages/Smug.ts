@@ -9,6 +9,7 @@ export const Smug: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Smug Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("smug", "sfw");
         const embed = {

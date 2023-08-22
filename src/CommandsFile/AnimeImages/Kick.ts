@@ -9,6 +9,7 @@ export const Kick: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Kick Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("kick", "sfw");
         const embed = {

@@ -9,6 +9,7 @@ export const Awoo: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Awoo Image",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("awoo", "sfw");
         const embed = {

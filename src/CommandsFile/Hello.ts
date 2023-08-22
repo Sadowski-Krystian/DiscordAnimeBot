@@ -8,20 +8,14 @@ export const Hello: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Hello command nothing special",
     run: async (client: Client, interaction: CommandInteraction) => {
-        // const content = "Hello there!";
+        const content = "Hello there!";
 
-        // await interaction.followUp({
-        //     ephemeral: true,
-        //     content: content
-        // });
-        const charaClient = new Character();
-        const character = await charaClient.searchCharacter("Marin Kitagawa");
-        console.log(character);
+        await interaction.followUp({
+            ephemeral: true,
+            content: content
+        });
         
-        // await interaction.followUp({
-        //     ephemeral: true,
-        //     content: character.toString()
-        // });
     }
 };

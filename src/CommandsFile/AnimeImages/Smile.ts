@@ -9,6 +9,7 @@ export const Smile: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Smile Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("smile", "sfw");
         const embed = {

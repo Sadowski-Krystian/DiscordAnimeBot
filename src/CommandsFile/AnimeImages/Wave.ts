@@ -9,6 +9,7 @@ export const Wave: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Wave Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("wave", "sfw");
         const embed = {

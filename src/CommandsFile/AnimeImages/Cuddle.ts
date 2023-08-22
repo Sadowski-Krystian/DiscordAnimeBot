@@ -10,6 +10,7 @@ export const Cuddle: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Cuddle Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("cuddle", "sfw");
         const embed = {

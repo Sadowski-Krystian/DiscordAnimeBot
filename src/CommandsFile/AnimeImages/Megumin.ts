@@ -10,6 +10,7 @@ export const Megumin: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Megumin Image",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("megumin", "sfw");
         const embed = {

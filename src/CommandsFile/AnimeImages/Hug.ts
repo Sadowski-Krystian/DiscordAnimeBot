@@ -9,6 +9,7 @@ export const Hug: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Hug Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("hug", "sfw");
         const embed = {

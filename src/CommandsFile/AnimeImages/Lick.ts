@@ -9,6 +9,7 @@ export const Lick: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Lick Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("lick", "sfw");
         const embed = {

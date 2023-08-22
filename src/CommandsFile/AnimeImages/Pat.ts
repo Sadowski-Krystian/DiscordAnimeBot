@@ -9,6 +9,7 @@ export const Pat: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Pat Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("pat", "sfw");
         const embed = {

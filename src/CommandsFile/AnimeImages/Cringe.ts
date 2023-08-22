@@ -9,6 +9,7 @@ export const Cringe: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Cringe Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("cringe", "sfw");
         const embed = {

@@ -35,6 +35,10 @@ import { NSFWWaifu } from "./CommandsFile/AnimeImages/NSFWWaifu";
 import { NSFWNeko } from "./CommandsFile/AnimeImages/NSFWNeko";
 import { NSFWTrap } from "./CommandsFile/AnimeImages/NSFWTrap";
 import { NSFWBlowjob } from "./CommandsFile/AnimeImages/NSFWBlowjob";
+import { LevelMessage } from "./CommandsFile/SetLevelMessage";
+import { LevelChannel } from "./CommandsFile/SetLevelChannel";
+import { Rank } from "./CommandsFile/Rank";
+import { RankEnable } from "./CommandsFile/EnableRankSystem";
 export const Commands: Command[] = [
     Help, 
     Hello, 
@@ -70,4 +74,8 @@ export const Commands: Command[] = [
     NSFWWaifu, 
     NSFWNeko, 
     NSFWTrap, 
-    NSFWBlowjob];
+    NSFWBlowjob, 
+    LevelMessage,
+    LevelChannel, 
+    Rank, 
+    RankEnable];

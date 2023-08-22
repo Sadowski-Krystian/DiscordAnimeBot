@@ -9,6 +9,7 @@ export const Kill: Command = {
     type: 1,
     category: commandCategory.Fun,
     showHelp: true,
+    helpDescription: "Random SFW Kill Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("kill", "sfw");
         const embed = {

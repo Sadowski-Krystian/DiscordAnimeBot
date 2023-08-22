@@ -11,6 +11,7 @@ export const NSFWBlowjob: Command = {
     category: commandCategory.Fun,
     showHelp: true,
     nsfw: true,
+    helpDescription: "Random NSFW Blowjob Gif",
     run: async (client: Client, interaction: CommandInteraction) => {
         const img = await GetImage("blowjob", "nsfw");
         const embed = {

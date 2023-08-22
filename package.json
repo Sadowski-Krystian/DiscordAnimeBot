@@ -2,6 +2,7 @@
   "dependencies": {
     "@shineiichijo/marika": "^2.0.6",
     "@tutkli/jikan-ts": "^0.6.62",
+    "canvacord": "^5.4.10",
     "debug": "^3.2.7",
     "discord.js": "^14.11.0",
     "dotenv": "^16.3.1",
@@ -9,6 +10,7 @@
     "mal-client": "^1.0.3",
     "mal-scraper": "^2.13.1",
     "node-fetch": "^2.6.12",
+    "pocketbase": "^0.16.0",
     "waifu-pics-api": "^1.0.5"
   },
   "devDependencies": {
