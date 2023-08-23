@@ -3,6 +3,7 @@ import { Command } from "../interfaces/Command";
 import commandCategory from "../enum/CommandsCategory";
 import { Character } from "@shineiichijo/marika";
 import { CalculateXp } from "../AutoCommands/CalculateLevels";
+import { pb } from "../database";
 const PocketBase = require('pocketbase/cjs')
 const canvacord = require("canvacord");
 export const Rank: Command = {
@@ -31,8 +32,6 @@ export const Rank: Command = {
         const targetUserId: any = mentionUserId || interaction.member.user.id
         const targetUserObj = await interaction.guild?.members.fetch(targetUserId);
 
-        const pb = new PocketBase('http://127.0.0.1:8090');
-        const authData = await pb.admins.authWithPassword('krystek23s@gmail.com', 'gulgulglut');
         let settings;
         try {
             settings = await pb.collection('guildsSettings').getFirstListItem('guildId = "'+interaction.guild?.id+'"');

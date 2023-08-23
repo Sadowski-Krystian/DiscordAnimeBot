@@ -1,6 +1,6 @@
 import { Client, REST, Routes } from "discord.js";
 import { Commands } from "../Commands";
-
+import { pb } from "../database";
 export default (client: Client): void => {
     client.on("ready", async () => {
         if(!client.user || !client.application){
@@ -32,8 +32,10 @@ export default (client: Client): void => {
         //         console.error(error);
         //     }
         // })();
+        const authData = await pb.admins.authWithPassword('krystek23s@gmail.com', 'gulgulglut');
+        // console.log(pb);
         
-
+        
         console.log(`${client.user.username} is online`);
         
     })

@@ -2,6 +2,7 @@ import { Channel, Client } from "discord.js";
 import { Commands } from "../Commands";
 import { AnimeInfo } from "../AutoCommands/AnimeInfo";
 import { CalculateXp } from "../AutoCommands/CalculateLevels";
+import { pb } from "../database";
 const PocketBase = require('pocketbase/cjs')
 
 export default (client: Client): void => {
@@ -16,8 +17,6 @@ export default (client: Client): void => {
         if(message.author.bot || !message.inGuild()){
             return
         }
-        const pb = new PocketBase('http://127.0.0.1:8090');
-        const authData = await pb.admins.authWithPassword('krystek23s@gmail.com', 'gulgulglut');
         const xpToGive = randomXpGive(10, 15);
         let settings;
             try {

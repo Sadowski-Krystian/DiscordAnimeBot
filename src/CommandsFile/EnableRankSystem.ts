@@ -2,6 +2,7 @@ import { CommandInteraction, Client, PermissionFlagsBits } from "discord.js";
 import { Command } from "../interfaces/Command";
 import commandCategory from "../enum/CommandsCategory";
 import { Character } from "@shineiichijo/marika";
+import { pb } from "../database";
 const PocketBase = require('pocketbase/cjs')
 export const RankEnable: Command = {
     name: "rank-enable",
@@ -13,8 +14,6 @@ export const RankEnable: Command = {
     helpDescription: "enable/disable rank system",
     run: async (client: Client, interaction: CommandInteraction) => {
         
-        const pb = new PocketBase('http://127.0.0.1:8090');
-        const authData = await pb.admins.authWithPassword('krystek23s@gmail.com', 'gulgulglut');
         let settings;
             try {
                 settings = await pb.collection('guildsSettings').getFirstListItem('guildId = "'+interaction.guild?.id+'"');

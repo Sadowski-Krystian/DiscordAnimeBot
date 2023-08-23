@@ -1,6 +1,7 @@
 import { CommandInteraction, Client, ChannelType, PermissionFlagsBits } from "discord.js";
 import { Command } from "../interfaces/Command";
 import commandCategory from "../enum/CommandsCategory";
+import { pb } from "../database";
 const PocketBase = require('pocketbase/cjs')
 export const LevelChannel: Command = {
     name: "levelchannel",
@@ -26,8 +27,6 @@ export const LevelChannel: Command = {
                 content: "you have to use this command in guild"
             });
         }
-        const pb = new PocketBase('http://127.0.0.1:8090');
-        const authData = await pb.admins.authWithPassword('krystek23s@gmail.com', 'gulgulglut');
         let settings;
             try {
                 settings = await pb.collection('guildsSettings').getFirstListItem('guildId = "'+interaction.guild?.id+'"');
