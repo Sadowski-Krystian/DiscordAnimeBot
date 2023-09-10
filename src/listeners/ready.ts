@@ -2,6 +2,8 @@ import { Client, REST, Routes } from "discord.js";
 import { Commands } from "../Commands";
 import { pb } from "../database";
 export default (client: Client): void => {
+    // console.log("ready");
+    
     client.on("ready", async () => {
         if(!client.user || !client.application){
             return;
@@ -32,7 +34,12 @@ export default (client: Client): void => {
         //         console.error(error);
         //     }
         // })();
-        const authData = await pb.admins.authWithPassword('krystek23s@gmail.com', 'gulgulglut');
+        // const authData = await pb.collection('bots').authWithPassword('bot1@test.pl', 'pocketbase1');
+
+        const authData = await pb.collection('bots').authWithPassword(
+            'bot1',
+            'pocketbase1',
+        );
         // console.log(pb);
         
         

@@ -4,6 +4,8 @@ import interactionCreate from "./listeners/interactionCreate";
 import dotenv from "dotenv"
 import messageCreate from "./listeners/messageCreate";
 import messageUpdate from "./listeners/messageUpdate";
+import voiceStateUpdate from "./listeners/voiceStateUpdate";
+// global.EventSource = require('eventsource');
 dotenv.config();
 console.log("Bot is starting...");
 
@@ -14,7 +16,8 @@ const client = new Client({
 		GatewayIntentBits.MessageContent,
 		GatewayIntentBits.GuildMembers,
         GatewayIntentBits.GuildMessageReactions,
-        GatewayIntentBits.GuildPresences
+        GatewayIntentBits.GuildPresences,
+        GatewayIntentBits.GuildVoiceStates,
         ]
 });
 
@@ -22,6 +25,7 @@ ready(client);
 interactionCreate(client);
 messageCreate(client);
 messageUpdate(client);
+voiceStateUpdate(client);
 client.login(process.env.TOKEN);
 
 console.log(client);

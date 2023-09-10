@@ -39,6 +39,13 @@ import { LevelMessage } from "./CommandsFile/SetLevelMessage";
 import { LevelChannel } from "./CommandsFile/SetLevelChannel";
 import { Rank } from "./CommandsFile/Rank";
 import { RankEnable } from "./CommandsFile/EnableRankSystem";
+import { Profile } from "./CommandsFile/Profile";
+import { ProfileDelete } from "./CommandsFile/ProfileDelete";
+import { NotificationSettings } from "./CommandsFile/NotificationSettings";
+import { PrivationSettings } from "./CommandsFile/PrivationSettings";
+import { Follow } from "./CommandsFile/follow";
+import { Unfollow } from "./CommandsFile/unfollow";
+import { FollowRequest } from "./CommandsFile/FollowRequest";
 export const Commands: Command[] = [
     Help, 
     Hello, 
@@ -78,4 +85,11 @@ export const Commands: Command[] = [
     LevelMessage,
     LevelChannel, 
     Rank, 
-    RankEnable];
+    RankEnable, 
+    Profile,
+    ProfileDelete, 
+    NotificationSettings, 
+    PrivationSettings, 
+    Follow, 
+    Unfollow, 
+    FollowRequest];
