@@ -9,7 +9,7 @@ export const RankEnable: Command = {
     description: "enable/disable rank system",
     type: 1,
     defaultMemberPermissions: PermissionFlagsBits.ManageGuild,
-    category: commandCategory.Fun,
+    category: commandCategory.Moderation,
     showHelp: true,
     helpDescription: "enable/disable rank system",
     run: async (client: Client, interaction: CommandInteraction) => {
