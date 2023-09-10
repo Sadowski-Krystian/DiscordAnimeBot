@@ -9,7 +9,7 @@ export const ProfileDelete: Command = {
     name: "profile-delete",
     description: "Deleting yours profile",
     type: 1,
-    category: commandCategory.Fun,
+    category: commandCategory.Profile,
     showHelp: true,
     helpDescription: "Deleting yours profile",
     run: async (client: Client, interaction: CommandInteraction) => {

@@ -1,7 +1,8 @@
 enum commandCategory{
     Moderation,
     Other,
-    Fun
+    Fun,
+    Profile
 }
 
 export default commandCategory;

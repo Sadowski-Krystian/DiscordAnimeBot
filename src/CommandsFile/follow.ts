@@ -18,7 +18,7 @@ export const Follow: Command = {
             required: true
         }
     ],
-    category: commandCategory.Fun,
+    category: commandCategory.Profile,
     showHelp: true,
     helpDescription: "followuje urzytkownika",
     run: async (client: Client, interaction: CommandInteraction) => {

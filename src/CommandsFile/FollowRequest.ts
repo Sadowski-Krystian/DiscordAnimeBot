@@ -16,7 +16,7 @@ export const FollowRequest: Command = {
     name: "follow-request",
     description: "wyświetla lisę prośb o followanie",
     type: 1,
-    category: commandCategory.Fun,
+    category: commandCategory.Profile,
     showHelp: true,
     helpDescription: "followuje urzytkownika",
     run: async (client: Client, interaction: CommandInteraction) => {

@@ -30,7 +30,7 @@ export const NotificationSettings: Command = {
             ]
         }
     ],
-    category: commandCategory.Fun,
+    category: commandCategory.Profile,
     showHelp: true,
     helpDescription: "zmienia ustawienia prywatności",
     run: async (client: Client, interaction: CommandInteraction) => {

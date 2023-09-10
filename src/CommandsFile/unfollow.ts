@@ -22,7 +22,7 @@ export const Unfollow: Command = {
             type: ApplicationCommandOptionType.Mentionable
         }
     ],
-    category: commandCategory.Fun,
+    category: commandCategory.Profile,
     showHelp: true,
     helpDescription: "followuje urzytkownika",
     run: async (client: Client, interaction: CommandInteraction) => {

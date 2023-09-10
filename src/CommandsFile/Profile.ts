@@ -17,7 +17,7 @@ export const Profile: Command = {
             type: ApplicationCommandOptionType.Mentionable
         }
     ],
-    category: commandCategory.Fun,
+    category: commandCategory.Profile,
     showHelp: true,
     helpDescription: "Hello command nothing special",
     run: async (client: Client, interaction: CommandInteraction) => {
