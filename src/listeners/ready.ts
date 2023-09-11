@@ -37,8 +37,8 @@ export default (client: Client): void => {
         // const authData = await pb.collection('bots').authWithPassword('bot1@test.pl', 'pocketbase1');
 
         const authData = await pb.collection('bots').authWithPassword(
-            'bot1',
-            'pocketbase1',
+            process.env.DATABASE_USER,
+            process.env.DATABASE_PASSWORD,
         );
         // console.log(pb);
         
