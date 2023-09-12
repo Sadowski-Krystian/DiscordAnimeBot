@@ -3,6 +3,7 @@ import { Commands } from "../Commands";
 import { AnimeInfo } from "../AutoCommands/AnimeInfo";
 import { CalculateXp } from "../AutoCommands/CalculateLevels";
 import { pb } from "../database";
+import { pbGuildSettings } from "src/interfaces/PocketBaseGuildSettings";
 const PocketBase = require('pocketbase/cjs')
 
 export default (client: Client): void => {
@@ -18,7 +19,18 @@ export default (client: Client): void => {
             return
         }
         const xpToGive = randomXpGive(10, 15);
-        let settings;
+        let settings: pbGuildSettings ={
+            collectionId: "",
+            collectionName: "",
+            created: "",
+            id: "",
+            updated: "",
+            expand: undefined,
+            guildId: "",
+            levelChannel: "",
+            levelMessage: "",
+            enableLevel: false
+        }
             try {
                 settings = await pb.collection('guildsSettings').getFirstListItem('guildId = "'+message.guild.id+'"');
             } catch (error: any) {
@@ -34,6 +46,8 @@ export default (client: Client): void => {
                 }
              
             }
+            console.log(settings);
+            
             if(!settings.enableLevel){
                 return
             }
@@ -56,7 +70,6 @@ export default (client: Client): void => {
             if(record.xp + xpToGive > CalculateXp(record.level)){
                 record.xp = 0;
                 record.level +=1;
-                const messageMemeber = message.member
                 const level = record.level
                 // console.log(messageMemeber);
                 
@@ -65,13 +78,13 @@ export default (client: Client): void => {
                     customMessage = `Gratulacje $user wbiłeś $level level`
                 }
                 customMessage = customMessage.replace('$level',level);
-                customMessage = customMessage.replace('$user',messageMemeber);
-                if(settings.channel == "none"){
+                customMessage = customMessage.replace('$user',"<@"+message.author.id+">");
+                if(settings.levelChannel == "none"){
                     message.channel.send({
                         content: customMessage
                     })
                 }else{
-                    const channel: any = client.channels.cache.get(settings.channel)
+                    const channel: any = client.channels.cache.get(settings.levelChannel)
                     channel.send({
                         content: customMessage
                     })
