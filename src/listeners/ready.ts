@@ -4,7 +4,7 @@ import { pb } from "../database";
 export default (client: Client): void => {
     // console.log("ready");
     
-    client.on("ready", async () => {
+    client.once("ready", async () => {
         if(!client.user || !client.application){
             return;
         }

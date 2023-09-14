@@ -3,7 +3,8 @@ import { Commands } from "../Commands";
 import { AnimeInfo } from "../AutoCommands/AnimeInfo";
 import { CalculateXp } from "../AutoCommands/CalculateLevels";
 import { pb } from "../database";
-import { pbGuildSettings } from "src/interfaces/PocketBaseGuildSettings";
+import { pbGuildSettings } from "../interfaces/PocketBaseGuildSettings";
+import { TestArray } from "../TestArrays";
 const PocketBase = require('pocketbase/cjs')
 
 export default (client: Client): void => {
@@ -46,7 +47,8 @@ export default (client: Client): void => {
                 }
              
             }
-            console.log(settings);
+            TestArray[0]++;
+            console.log(TestArray[0]);
             
             if(!settings.enableLevel){
                 return
