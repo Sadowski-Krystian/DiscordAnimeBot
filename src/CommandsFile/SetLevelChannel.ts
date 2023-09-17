@@ -50,7 +50,7 @@ export const LevelChannel: Command = {
                     content: "The rank system is disabled on this server"
                 });
             }
-            console.log(interaction.options.get('channel'));
+            // console.log(interaction.options.get('channel'));
             const option = interaction.options.get('channel')
             const id: any = option?.value
             

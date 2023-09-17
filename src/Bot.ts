@@ -27,5 +27,6 @@ messageCreate(client);
 messageUpdate(client);
 voiceStateUpdate(client);
 client.login(process.env.TOKEN);
+console.log("bot login in Bot.ts");
 
 console.log(client);

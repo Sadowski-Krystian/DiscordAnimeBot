@@ -74,7 +74,7 @@ export const PrivationSettings: Command = {
         if(option !== "private"){
             user.request = []
         }
-            console.log(user);
+            // console.log(user);
             
         const record = await pb.collection('users').update(user.id, user);
         

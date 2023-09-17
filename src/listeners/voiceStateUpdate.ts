@@ -20,7 +20,7 @@ export default (client: Client): void => {
         }
         if(oldState.channelId == null && newState.channelId != null){
             //dołączenie
-            console.log("dołączono");
+            // console.log("dołączono");
             
             let user: pbUser = {
                 avatar: "",

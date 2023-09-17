@@ -71,7 +71,7 @@ export const NotificationSettings: Command = {
              
             }
         user.notification = option
-            console.log(user);
+            // console.log(user);
             
         const record = await pb.collection('users').update(user.id, user);
         
