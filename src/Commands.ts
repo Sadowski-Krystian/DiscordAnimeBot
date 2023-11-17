@@ -46,6 +46,7 @@ import { PrivationSettings } from "./CommandsFile/PrivationSettings";
 import { Follow } from "./CommandsFile/follow";
 import { Unfollow } from "./CommandsFile/unfollow";
 import { FollowRequest } from "./CommandsFile/FollowRequest";
+import { leaderboard } from "./CommandsFile/Leaderboard";
 export const Commands: Command[] = [
     Help, 
     Hello, 
@@ -92,4 +93,5 @@ export const Commands: Command[] = [
     PrivationSettings, 
     Follow, 
     Unfollow, 
-    FollowRequest];
+    FollowRequest,
+    leaderboard];

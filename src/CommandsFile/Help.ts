@@ -1,4 +1,4 @@
-import { CommandInteraction, Client, User } from "discord.js";
+import { CommandInteraction, Client, User, ButtonBuilder, ButtonStyle, ActionRowBuilder } from "discord.js";
 import { Command } from "../interfaces/Command";
 import embeds from "../config"
 import { Commands } from "../Commands";
@@ -66,7 +66,12 @@ export const Help: Command = {
           }
         }
         
-        
+        const create = new ButtonBuilder()
+                    .setLabel('Rules')
+                    .setURL("https://discord-bot.pockethost.io/rules.html")
+                    .setStyle(ButtonStyle.Link);
+                    const row: any = new ActionRowBuilder()
+                        .addComponents(create);
         const embed = {
             author:{
                 name: botUsername,
@@ -76,14 +81,15 @@ export const Help: Command = {
             description: 'For More information type `/help [command]`',
             fields: fields,
             footer: {
-                text: embeds.footer
+                text: "Using my bot you accept my Rules"
             }
             
         }
 
         await interaction.followUp({
             ephemeral: true,
-            embeds: [embed]
+            embeds: [embed],
+            components: [row]
         });
     }
 };

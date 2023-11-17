@@ -86,7 +86,7 @@ export const Profile: Command = {
                     let data: any
                     for (const provider of authMethods.authProviders) {
                         if(provider.name=="discord"){
-                            link = provider.authUrl+"https://pocketbase.hop.sh/redirect.html"
+                            link = provider.authUrl+"https://discord-bot.pockethost.io/redirect.html"
                             data = {
                                 name: provider.name,
                                 state: provider.state,
