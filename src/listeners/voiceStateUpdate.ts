@@ -49,7 +49,9 @@ export default (client: Client): void => {
                     return
                 }
                 // console.log(user.expand.followers.lenght);
-                
+                if(user.followers.length<1){
+                    return
+                }
                 for(let i=0; i<user.expand.followers.length; i++){
                     // console.log(user.expand.followers[i].userId);
                     
