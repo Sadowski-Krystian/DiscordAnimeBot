@@ -42,8 +42,14 @@ export default (client: Client): void => {
                         "levelMessage": "none",
                         "enableLevel": false
                     };
+                    try{
+                        settings = await pb.collection('guildsSettings').create(data);
+                    }catch(err: any){
+                        console.log(err);
+                        return;
+                        
+                    }
                     
-                    settings = await pb.collection('guildsSettings').create(data);
                 }
              
             }
