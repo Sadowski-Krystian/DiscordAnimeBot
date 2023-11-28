@@ -41,7 +41,7 @@ export const Follow: Command = {
             username: "",
             verified: false,
             expand: {},
-            request: [],
+            requests: [],
             notification: ""
         };
         try {
@@ -101,7 +101,9 @@ export const Follow: Command = {
                         break;
 
                     case "yes":
-                        if(targetUser.request.includes(user.id)){
+                        // console.log(targetUser);
+                        
+                        if(targetUser.requests.includes(user.id)){
                             await reply.edit({
                                 content: "Ten użytkownij ma już twoją proźbe",
                                 components: []
@@ -119,7 +121,7 @@ export const Follow: Command = {
                                 
                                 
                             }
-                            targetUser.request.push(user.id)
+                            targetUser.requests.push(user.id)
                             await pb.collection('users').update(targetUser.id, targetUser);
                             
                             await reply.edit({

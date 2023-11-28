@@ -42,7 +42,7 @@ export const Unfollow: Command = {
             username: "",
             verified: false,
             expand: {},
-            request: [],
+            requests: [],
             notification: ""
         };
         const mentionUserId = interaction.options.get('target-user')?.value

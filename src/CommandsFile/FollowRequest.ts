@@ -38,12 +38,12 @@ export const FollowRequest: Command = {
             username: "",
             verified: false,
             expand: {},
-            request: [],
+            requests: [],
             notification: ""
         };
         try {
             user = await pb.collection('users').getFirstListItem('userId="' + interactionUserId + '"', {
-                expand: 'request'
+                expand: 'requests'
             });
         } catch (error: any) {
             return await interaction.followUp({
@@ -58,22 +58,22 @@ export const FollowRequest: Command = {
             });
         }
 
-        if (user.request.length == 0) {
+        if (user.requests.length == 0) {
             return await interaction.followUp({
                 ephemeral: true,
                 content: "nie posiadasz żadnych próśb"
             });
         }
-        // console.log(user.expand.request);
+        // console.log(user.expand.requests);
 
-        user.expand.request.sort(compare)
+        user.expand.requests.sort(compare)
         let start = 0
-        let end = (user.expand.request.length >= 10) ? 10 : user.expand.request.length
-        let embed = ListEmbed(user.expand.request, start, end, "Follow Request")
+        let end = (user.expand.requests.length >= 10) ? 10 : user.expand.requests.length
+        let embed = ListEmbed(user.expand.requests, start, end, "Follow requests")
         const [MaxLeft, Left, MaxRight, Right] = ListEmbedButtonBuilder(end)
         const row: any = new ActionRowBuilder().addComponents([MaxLeft, Left, Right, MaxRight])
 
-        const menuRow = StringListSelectMenuBuilder(user.expand.request, start, end, "wybiez użytkownika aby odrzucić lub zaakceptować")
+        const menuRow = StringListSelectMenuBuilder(user.expand.requests, start, end, "wybiez użytkownika aby odrzucić lub zaakceptować")
         const reply = await interaction.followUp({
             embeds: [embed],
             components: [row, menuRow]
@@ -92,12 +92,12 @@ export const FollowRequest: Command = {
             time: 1000 * 30
         })
         let index: string
-        Collectors.set("RequestMenu" + interaction.id, interaction.id)
+        Collectors.set("requestMenu" + interaction.id, interaction.id)
         collecorMenu.on('collect', async (MenuInteraction: StringSelectMenuInteraction) => {
             await MenuInteraction.deferUpdate()
             // console.log(user.expand.following[MenuInteraction.values[0]].id);
             index = MenuInteraction.values[0]
-            embed.description = "czy akceptujesz follow uzytkownia " + user.expand.request[MenuInteraction.values[0]].username
+            embed.description = "czy akceptujesz follow uzytkownia " + user.expand.requests[MenuInteraction.values[0]].username
             const Back = new ButtonBuilder()
                 .setLabel('back')
                 .setCustomId("back")
@@ -111,16 +111,16 @@ export const FollowRequest: Command = {
         })
 
         collecorMenu.on("end", async () => {
-            Collectors.delete("RequestMenu" + interaction.id)
+            Collectors.delete("requestMenu" + interaction.id)
         })
 
-        Collectors.set("RequestButtons" + interaction.id, interaction.id)
+        Collectors.set("requestButtons" + interaction.id, interaction.id)
         collecorButtons.on('collect', async (buttonInteraction: ButtonInteraction) => {
             await buttonInteraction.deferUpdate()
 
             if (buttonInteraction.customId == "no") {
-                let toDelete = user.request.indexOf(user.expand.request[index].id)
-                user.request.splice(toDelete, 1)
+                let toDelete = user.requests.indexOf(user.expand.requests[index].id)
+                user.requests.splice(toDelete, 1)
                 await pb.collection('users').update(user.id, user);
                 embed.description = "pomyślnie odrzucono prośbę"
                 reply.edit({
@@ -130,10 +130,10 @@ export const FollowRequest: Command = {
             }
 
             if (buttonInteraction.customId == "yes") {
-                let toDelete = user.request.indexOf(user.expand.request[index].id)
+                let toDelete = user.requests.indexOf(user.expand.requests[index].id)
                 let userFollow
                 try {
-                    userFollow = await pb.collection('users').getOne(user.expand.request[index].id);
+                    userFollow = await pb.collection('users').getOne(user.expand.requests[index].id);
                 } catch (e) {
                     await interaction.followUp({
                         ephemeral: true,
@@ -141,7 +141,7 @@ export const FollowRequest: Command = {
                     });
                 }
 
-                user.request.splice(toDelete, 1)
+                user.requests.splice(toDelete, 1)
                 user.followers.push(userFollow.id)
                 userFollow.following.push(user.id)
 
@@ -158,16 +158,16 @@ export const FollowRequest: Command = {
             if (buttonInteraction.customId !== "no" && buttonInteraction.customId !== "yes") {
 
 
-                const [newstart, newend] = CalculatePage(start, end, user.expand.request, buttonInteraction.customId);
+                const [newstart, newend] = CalculatePage(start, end, user.expand.requests, buttonInteraction.customId);
                 start = newstart
                 end = newend
-                const [LeftBool, RightBool, MaxLeftBool, MaxRightBool] = CalculateButtonPages(start, end, user.expand.request)
+                const [LeftBool, RightBool, MaxLeftBool, MaxRightBool] = CalculateButtonPages(start, end, user.expand.requests)
                 Left.setDisabled(LeftBool)
                 Right.setDisabled(RightBool)
                 MaxLeft.setDisabled(MaxLeftBool)
                 MaxRight.setDisabled(MaxRightBool)
-                const menuRow = StringListSelectMenuBuilder(user.expand.request, start, end, "wybiez użytkownika do unfolowania")
-                embed = ListEmbed(user.expand.request, start, end, "requests")
+                const menuRow = StringListSelectMenuBuilder(user.expand.requests, start, end, "wybiez użytkownika do unfolowania")
+                embed = ListEmbed(user.expand.requestss, start, end, "requests")
                 collecorButtons.resetTimer()
                 reply.edit({
                     embeds: [embed],
@@ -178,7 +178,7 @@ export const FollowRequest: Command = {
 
 
         collecorButtons.on("end", async () => {
-            Collectors.delete("RequestButtons" + interaction.id)
+            Collectors.delete("requestButtons" + interaction.id)
         })
 
     }

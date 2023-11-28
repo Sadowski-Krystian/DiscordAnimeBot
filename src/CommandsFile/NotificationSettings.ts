@@ -58,7 +58,7 @@ export const NotificationSettings: Command = {
             username: "",
             verified: false,
             expand: {},
-            request: [],
+            requests: [],
             notification: ""
         };
             try {

@@ -7,7 +7,7 @@ export interface pbUser {
     emailVisibility: boolean,
     followers: Array<string>,
     following: Array<string>,
-    request: Array<string>,
+    requests: Array<string>,
     id: string,
     privation: string,
     updated: string,

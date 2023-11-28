@@ -38,7 +38,7 @@ export default (client: Client): void => {
                 username: "",
                 verified: false,
                 expand: {},
-                request: [],
+                requests: [],
                 notification: ""
             };
                 try {

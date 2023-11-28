@@ -58,7 +58,7 @@ export const PrivationSettings: Command = {
             username: "",
             verified: false,
             expand: {},
-            request: [],
+            requests: [],
             notification: ""
         };
             try {
@@ -72,7 +72,7 @@ export const PrivationSettings: Command = {
             }
         user.privation = option
         if(option !== "private"){
-            user.request = []
+            user.requests = []
         }
             // console.log(user);
             
