@@ -50,7 +50,7 @@ export const Profile: Command = {
             
         }
         if(mentionUserId == undefined){
-            embed.description = "You don't have a profile. \nThis link works 5 minutes";
+            embed.description = "You don't have a profile. \nThis link works 5 minutes\n!!Profile is create via discord account, read rules what data we collect from your discord account before create profile!!";
         }
         
         let user: pbUser = {
@@ -100,7 +100,10 @@ export const Profile: Command = {
                         console.log(provider);
                         
                     }
-
+                    const rules = new ButtonBuilder()
+                    .setLabel('Rules')
+                    .setURL("https://discord-bot.pockethost.io/rules.html")
+                    .setStyle(ButtonStyle.Link);
                     const create = new ButtonBuilder()
                     .setLabel('Create Profile')
                     .setURL(link)
@@ -112,7 +115,7 @@ export const Profile: Command = {
                     setTimeout(deleteCode, 5 * 60 * 1000)
                     
                     const row: any = new ActionRowBuilder()
-                        .addComponents(create);
+                        .addComponents(create, rules);
                     return await interaction.followUp({
                         embeds: [embed],
                         components: [row],
