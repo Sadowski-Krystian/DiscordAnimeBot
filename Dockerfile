@@ -10,6 +10,6 @@ RUN npm cache clean -f
 
 RUN npm ci --maxsockets 1
 
-COPY . ./usr/src/app/
+COPY . /usr/src/app/
 
 CMD [ "npm", "run", "start" ]
