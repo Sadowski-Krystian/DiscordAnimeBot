@@ -9,6 +9,7 @@ const PocketBase = require('pocketbase/cjs')
 
 export default (client: Client): void => {
     client.on("messageCreate", async (message) => {
+        /*
         if(process.env.STATUS == "DEV" && message.guild?.id != process.env.GUILD){
             return;
         }
@@ -106,7 +107,7 @@ export default (client: Client): void => {
             await pb.collection('levels').update(record.id, record);
             
             
-        
+        */
         
     })
 }
